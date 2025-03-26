@@ -1,8 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const navLinks = [
-    { label: 'Home', href: '/' },
+    
     { label: 'Products', href: '/products' },
     { label: 'Support', href: '/support' },
     { label: 'Partner Portal', href: '/partner-portal' },
@@ -11,33 +16,33 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="navbar navbar-expand-md bg-white border-bottom shadow-sm py-3">
-      <div className="container">
-        {/* Left - Logo */}
-        <Link href="/" className="navbar-brand fw-bold fst-italic d-flex align-items-center">
-          <span className="text-danger">CYNK</span>
-          <span className="text-secondary">CO</span>
-          <sup className="ms-1 small">®</sup>
+    <nav className="navbar bg-white border-bottom py-3 position-relative">
+      <div className="container d-flex justify-content-between align-items-center">
+        {/* Logo */}
+        <Link href="/" className="navbar-brand  gap-2">
+          <img
+            src="/images/imagelogo.jpg"
+            alt="Logo"
+            width={150}
+            className="d-inline-block align-text-top"
+          />
         </Link>
 
-        {/* Toggle Button (Mobile) */}
+        {/* Toggle Button (Top Right) */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler d-md-none"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarMain"
-          aria-controls="navbarMain"
-          aria-expanded="false"
+          onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Center - Links */}
-        <div className="collapse navbar-collapse justify-content-center" id="navbarMain">
-          <ul className="navbar-nav mb-2 mb-md-0">
+        {/* Desktop Menu */}
+        <div className="d-none d-md-block">
+          <ul className="navbar-nav d-flex flex-row gap-4">
             {navLinks.map((link) => (
-              <li className="nav-item mx-2" key={link.label}>
+              <li className="nav-item" key={link.label}>
                 <Link href={link.href} className="nav-link text-dark fw-medium">
                   {link.label}
                 </Link>
@@ -45,18 +50,29 @@ export default function Navbar() {
             ))}
           </ul>
         </div>
-
-        {/* Right - Icons */}
-        <div className="d-flex align-items-center gap-3">
-          <div className="d-flex align-items-center border-end pe-3">
-            <span className="me-1">🌐</span>
-            <span className="me-1">Global</span>
-            <span className="small">EN</span>
-          </div>
-          <button className="btn p-0">👤</button>
-          <button className="btn p-0">🔍</button>
-        </div>
       </div>
+
+      {/* Mobile Dropdown Menu Overlay */}
+      {isOpen && (
+        <div
+          className="position-absolute top-100 end-0 mt-2 bg-white shadow rounded p-3 z-3"
+          style={{ width: '200px' }}
+        >
+          <ul className="navbar-nav d-flex flex-column text-end">
+            {navLinks.map((link) => (
+              <li className="nav-item my-1" key={link.label}>
+                <Link
+                  href={link.href}
+                  className="nav-link text-dark fw-medium"
+                  onClick={() => setIsOpen(false)} // close on click
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
