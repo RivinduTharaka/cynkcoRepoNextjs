@@ -69,7 +69,7 @@ export default function Navbar() {
           className="position-absolute end-0 start-0 px-4 z-3"
           style={{
             top: '100%',
-            background: '#ffffff',
+            background: '#00000',
             borderBottomLeftRadius: '16px',
             borderBottomRightRadius: '16px',
             boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
