@@ -1,14 +1,8 @@
-import { Typography, Container } from '@mui/material';
-
 export default function Contact() {
-  return (
-    <Container sx={{ py: 4 }}>
-      <Typography variant="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#1976d2' }}>
-        Contact Us
-      </Typography>
-      <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-        Get in touch with us for inquiries or support.
-      </Typography>
-    </Container>
-  );
-}
+    return (
+      <div className="container py-4">
+        <h1 className="display-4 fw-bold text-primary mb-4">Contact Us</h1>
+        <p className="lead text-muted">Get in touch with us for inquiries or support.</p>
+      </div>
+    );
+  }

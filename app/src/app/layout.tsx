@@ -1,12 +1,13 @@
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'My Next.js App',
-  description: 'A simple app with MUI styling',
+  description: 'A simple app with Bootstrap styling',
 };
 
 export default function RootLayout({

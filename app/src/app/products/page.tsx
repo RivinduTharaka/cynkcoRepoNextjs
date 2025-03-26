@@ -1,14 +1,8 @@
-import { Typography, Container } from '@mui/material';
-
 export default function Products() {
-  return (
-    <Container sx={{ py: 4 }}>
-      <Typography variant="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#1976d2' }}>
-        Products
-      </Typography>
-      <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-        Explore our wide range of products here.
-      </Typography>
-    </Container>
-  );
-}
+    return (
+      <div className="container py-4">
+        <h1 className="display-4 fw-bold text-primary mb-4">Products</h1>
+        <p className="lead text-muted">Explore our wide range of products here.</p>
+      </div>
+    );
+  }
