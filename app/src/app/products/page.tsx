@@ -1,13 +1,13 @@
 import { Typography, Container } from '@mui/material';
 
-export default function Home() {
+export default function Products() {
   return (
-    <Container sx={{ py: 4, textAlign: 'center' }}>
+    <Container sx={{ py: 4 }}>
       <Typography variant="h2" gutterBottom sx={{ fontWeight: 'bold', color: '#1976d2' }}>
-        Welcome to My App
+        Products
       </Typography>
       <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-        This is the homepage of our application. Explore our products and services!
+        Explore our wide range of products here.
       </Typography>
     </Container>
   );
